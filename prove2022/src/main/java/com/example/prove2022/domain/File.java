@@ -13,6 +13,7 @@ public class File {
     @Id @GeneratedValue
     @Column(name="file_id")
     private Long id;
+
     private String fileName;
     private String extensionName;
     private String path;

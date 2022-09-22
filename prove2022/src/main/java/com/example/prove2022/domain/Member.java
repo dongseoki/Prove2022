@@ -24,13 +24,14 @@ public class Member {
 
     // profilePhotoId
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "file_id")
+    @JoinColumn(name = "profile_photo_id")
     private File profilePhoto;
 
     // backgroundPhotoId
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "file_id")
+    @JoinColumn(name = "background_photo_id")
     private File backgroundPhoto;
+    // 추후 적용.
 
     private String password;
     private LocalDateTime createDate;
