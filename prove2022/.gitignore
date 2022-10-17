@@ -36,5 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
+gradle/wrapper/**
 gradlew
 gradlew.bat
