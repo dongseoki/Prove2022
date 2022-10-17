@@ -1,0 +1,118 @@
+/* arcusCacheItems.properties */
+[
+  // 1) APP_USER:case1#20190101
+  {
+    “target”: “user.UserService.case1”,
+  “prefix”: “_USER”,
+  “key”: “case1”,
+  “expireTime”: “EXPIRE_TIME_1_MIN”,
+  “keyDate”: “KEY_DATE_DAY”
+},
+  // 2) APP:user.UserService.case2
+  {
+    “target”: “user.UserService.case2”,
+  “expireTime”: 60
+  },
+  // 3) APP:user.UserService.case3@ARG0=<id=1,name=arcus>
+  {
+    “target”: “user.UserService.case3”,
+  “keyParams”: [“id,name”]
+},
+  // 4) APP:user.UserService.case4@ARG0=<*=1>
+  {
+    “target”: “user.UserService.case4”,
+  “keyParams”: [“*”]
+},
+  // 5) APP:user.UserService.case5@ARG0=<id=1,name=arcus>,ARG1=<*=1>
+  {
+    “target”: “user.UserService.case5”,
+  “keyParams”: [“id,name”, “*”]
+},
+  // 6) APP:user.UserService.case6@ARG0=<*={id=1,name=arcus}>,ARG1=<*=1>
+  {
+    “target”: “user.UserService.case6”,
+  “keyAutoGeneration”: true
+  },
+  // 7) APP:user.UserService.case7@ARG0=<id=1,name=arcus>
+  {
+    “target”: “user.UserService.case7”,
+  “keyParams”: [“id,name”, null]
+},
+  // 8) APP:user.UserService.case8@ARG0=<*=[1,2,3]>
+  {
+    “target”: “user.UserService.case8”,
+  “keyParams”: [“*”]
+},
+  // 9) APP:user.UserService.case9@ARG0=<*=[1,2,3]>
+  {
+    24
+    “target”: “user.UserService.case9”,
+    “keyParams”: [“*”]
+  },
+  // 10) APP:user.UserService.case10@ARG0=<id=[1,2,3]>
+  {
+    “target”: “user.UserService.case10”,
+  “keyParams”: [“id”]
+},
+  // 11) APP:user.UserService.case11@ARG0=<id=[1,2,3]>
+  {
+    “target”: “user.UserService.case11”,
+  “keyParams”: [“id”]
+},
+  // 12) APP:user.UserService.case12@ARG0=<id=1,name=arcus>
+  {
+    “target”: “user.UserService.case12”,
+  “keyParams”: [“id,name”]
+},
+  // 13) APP:user.UserService.case13@ARG0=<*={id=1,name=arcus}>
+  {
+    “target”: “user.UserService.case13”,
+  “keyParams”: [“*”]
+},
+  // 14) APP:user.UserService.case14@ARG0=<*={id=1,name=arcus}>
+  {
+    “target”: “user.UserService.case14”,
+  “keyParams”: [“*”]
+},
+  // 15) APP:user.UserService.case15@ARG0=<friend.id=2>
+  {
+    “target”: “user.UserService.case15”,
+  “keyParams”: [“friend.id”]
+},
+  // 16) APP:user.UserService.case16@ARG0=<friendMap.id=2>
+  {
+    “target”: “user.UserService.case16”,
+  “keyParams”: [“friendMap.id”]
+},
+  // 17) APP:user.UserService.case17@ARG0=<friendArray.id=[2,3,4]>
+  25
+  {
+    “target”: “user.UserService.case17”,
+  “keyParams”: [“friendArray.id”]
+},
+  // 18) APP:user.UserService.case18@ARG0=<friendList.id=[2,3,4]>
+  {
+    “target”: “user.UserService.case18”,
+  “keyParams”: [“friendList.id”]
+},
+  // 19) APP:user.UserService.case19@ARG0=<mobileNumberArray=[010,011,012]>
+  {
+    “target”: “user.UserService.case19”,
+  “keyParams”: [“mobileNumberArray”]
+},
+//   20) APP:user.UserService.case20@ARG0=<mobileNumberList=[010,011,012]>
+  {
+    “target”: “user.UserService.case20”,
+  “keyParams”: [“mobileNumberList”]
+},
+  // 21) APP:user.UserService.case21@ARG0=<friend.*={id=2,name=arcus}>
+  {
+    “target”: “user.UserService.case21”,
+  “keyParams”: [“friend.*”]
+},
+  // 22) APP:user.UserService.case22@ARG0=<friendMap.*={id=2,name=arcus}>
+  {
+    “target”: “user.UserService.case22”,
+  “keyParams”: [“friendMap.*”]
+}
+]

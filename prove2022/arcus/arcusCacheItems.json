@@ -1,0 +1,117 @@
+[
+  
+  {
+    "target": "user.UserService.case1",
+  "prefix": "_USER",
+  "key": "case1",
+  "expireTime": "EXPIRE_TIME_1_MIN",
+  "keyDate": "KEY_DATE_DAY"
+},
+  
+  {
+    "target": "user.UserService.case2",
+  "expireTime": 60
+  },
+  
+  {
+    "target": "user.UserService.case3",
+  "keyParams": ["id,name"]
+},
+  
+  {
+    "target": "user.UserService.case4",
+  "keyParams": ["*"]
+},
+  
+  {
+    "target": "user.UserService.case5",
+  "keyParams": ["id,name", "*"]
+},
+  
+  {
+    "target": "user.UserService.case6",
+  "keyAutoGeneration": true
+  },
+  
+  {
+    "target": "user.UserService.case7",
+  "keyParams": ["id,name", null]
+},
+  
+  {
+    "target": "user.UserService.case8",
+  "keyParams": ["*"]
+},
+  
+  {
+    24
+    "target": "user.UserService.case9",
+    "keyParams": ["*"]
+  },
+  
+  {
+    "target": "user.UserService.case10",
+  "keyParams": ["id"]
+},
+  
+  {
+    "target": "user.UserService.case11",
+  "keyParams": ["id"]
+},
+  
+  {
+    "target": "user.UserService.case12",
+  "keyParams": ["id,name"]
+},
+  
+  {
+    "target": "user.UserService.case13",
+  "keyParams": ["*"]
+},
+  
+  {
+    "target": "user.UserService.case14",
+  "keyParams": ["*"]
+},
+  
+  {
+    "target": "user.UserService.case15",
+  "keyParams": ["friend.id"]
+},
+  
+  {
+    "target": "user.UserService.case16",
+  "keyParams": ["friendMap.id"]
+},
+  
+  25
+  {
+    "target": "user.UserService.case17",
+  "keyParams": ["friendArray.id"]
+},
+  
+  {
+    "target": "user.UserService.case18",
+  "keyParams": ["friendList.id"]
+},
+  
+  {
+    "target": "user.UserService.case19",
+  "keyParams": ["mobileNumberArray"]
+},
+
+  {
+    "target": "user.UserService.case20",
+  "keyParams": ["mobileNumberList"]
+},
+  
+  {
+    "target": "user.UserService.case21",
+  "keyParams": ["friend.*"]
+},
+  
+  {
+    "target": "user.UserService.case22",
+  "keyParams": ["friendMap.*"]
+}
+]
