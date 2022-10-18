@@ -21,8 +21,7 @@ public class ArcusAnnotationAspect extends ArcusCacheAspect {
  @Pointcut("@annotation(com.jam2in.arcus.app.common.aop.ArcusCache &&
 execution(!void org.jam2in.arcus.commontest.*Service.get*(..))))")
 */
-    @Pointcut("@annotation(com.jam2in.arcus.app.common.aop.ArcusCache &&
-            {POINTCUT_EXPRESSION} )")
+    @Pointcut("@annotation(com.jam2in.arcus.app.common.aop.ArcusCache) && execution(!void org.jam2in.arcus.commontest.*Service.get*(..))))")
     public void pointcut() {}
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
