@@ -1,7 +1,7 @@
 package com.example.prove2022.config;
 
 import com.example.prove2022.config.aspect.ArcusAnnotationAspect;
-import com.example.prove2022.config.aspect.ArcusJsonAspect;
+//import com.example.prove2022.config.aspect.ArcusJsonAspect;
 import com.example.prove2022.config.fetcherImpl.ArcusCacheItemJsonFetcherImpl;
 import com.example.prove2022.config.fetcherImpl.ArcusPropertyJsonFetcherImpl;
 import com.jam2in.arcus.app.common.config.ArcusConfiguration;
