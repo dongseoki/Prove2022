@@ -25,11 +25,11 @@ public class TestRestController {
         return "success";
     }
 
-    @GetMapping("/arcus-common-module-test/get-test")
-    public String arcusCommonModuleGetTest(@RequestParam(value = "testKey") String testKey){
-        String result = testService.getTestData(testKey);
-        return result;
-    }
+//    @GetMapping("/arcus-common-module-test/get-test")
+//    public String arcusCommonModuleGetTest(@RequestParam(value = "testKey") String testKey){
+//        String result = testService.getTestData(testKey);
+//        return result;
+//    }
 
     @GetMapping("/arcus-common-module-test/get-user")
     public String arcusCommonModuleGetUser(@RequestParam(value = "caseType") String caseType,

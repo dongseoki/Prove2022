@@ -1,7 +1,7 @@
 package com.example.prove2022.config;
 
-import com.example.prove2022.config.aspect.ArcusAnnotationAspect;
-//import com.example.prove2022.config.aspect.ArcusJsonAspect;
+//import com.example.prove2022.config.aspect.ArcusAnnotationAspect;
+import com.example.prove2022.config.aspect.ArcusJsonAspect;
 import com.example.prove2022.config.fetcherImpl.ArcusCacheItemJsonFetcherImpl;
 import com.example.prove2022.config.fetcherImpl.ArcusPropertyJsonFetcherImpl;
 import com.jam2in.arcus.app.common.config.ArcusConfiguration;
@@ -60,18 +60,18 @@ public class ArcusCommonConfiguration {
     Annotation 기반의 캐싱을 위한 Aspect bean 생성.
     이 기능을 사용하지 않는다면 아래의 내용을 생략한다.
     */
-    @Bean
-    public ArcusAnnotationAspect arcusAnnotationAspect() {
-        return new ArcusAnnotationAspect(arcusConfiguration);
-    }
+//    @Bean
+//    public ArcusAnnotationAspect arcusAnnotationAspect() {
+//        return new ArcusAnnotationAspect(arcusConfiguration);
+//    }
     /*
     JSON 기반의 캐싱을 위한 Aspect bean 생성.
     이 기능을 사용하지 않는다면 아래의 내용을 생략한다.
     */
-//    @Bean
-//    public ArcusJsonAspect arcusJsonAspect() {
-//        return new ArcusJsonAspect(arcusConfiguration);
-//    }
+    @Bean
+    public ArcusJsonAspect arcusJsonAspect() {
+        return new ArcusJsonAspect(arcusConfiguration);
+    }
 
     /*
     Fetcher 기반의 Arcus 프로퍼티 업데이트를 위한 bean 생성.

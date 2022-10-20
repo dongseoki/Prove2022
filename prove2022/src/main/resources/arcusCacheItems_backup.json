@@ -1,0 +1,117 @@
+[
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case1",
+  "prefix": "_USER",
+  "key": "case1",
+  "expireTime": "EXPIRE_TIME_1_MIN",
+  "keyDate": "KEY_DATE_DAY"
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case2",
+  "expireTime": 60
+  },
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case3",
+  "keyParams": ["id,name"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case4",
+  "keyParams": ["*"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case5",
+  "keyParams": ["id,name", "*"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case6",
+  "keyAutoGeneration": true
+  },
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case7",
+  "keyParams": ["id,name", null]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case8",
+  "keyParams": ["*"]
+},
+  
+  {
+    24
+    "target": "com.example.prove2022.test.TestService.case9",
+    "keyParams": ["*"]
+  },
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case10",
+  "keyParams": ["id"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case11",
+  "keyParams": ["id"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case12",
+  "keyParams": ["id,name"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case13",
+  "keyParams": ["*"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case14",
+  "keyParams": ["*"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case15",
+  "keyParams": ["friend.id"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case16",
+  "keyParams": ["friendMap.id"]
+},
+  
+  25
+  {
+    "target": "com.example.prove2022.test.TestService.case17",
+  "keyParams": ["friendArray.id"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case18",
+  "keyParams": ["friendList.id"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case19",
+  "keyParams": ["mobileNumberArray"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case20",
+  "keyParams": ["mobileNumberList"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case21",
+  "keyParams": ["friend.*"]
+},
+  
+  {
+    "target": "com.example.prove2022.test.TestService.case22",
+  "keyParams": ["friendMap.*"]
+}
+]

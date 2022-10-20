@@ -45,8 +45,8 @@ dependencies {
 
 	runtimeOnly 'com.h2database:h2'
 
-//	implementation fileTree(dir:'/Users/dongseoklee/Work/LibDependencies/ArcusAppCommonDependencies', includes: ['*.jar'])
-		implementation fileTree(dir:'/Users/dongseoklee/Github/arcus-app-common/target', includes: ['*.jar'])
+	implementation fileTree(dir:'/Users/dongseoklee/Work/LibDependencies/ArcusAppCommonDependencies', includes: ['*.jar'])
+//		implementation fileTree(dir:'/Users/dongseoklee/Github/arcus-app-common/target', includes: ['*.jar'])
 //	/Users/dongseoklee/Github/arcus-app-common/target
 	// for SQL execute parameter log...
 	//implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'

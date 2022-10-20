@@ -27,11 +27,11 @@ public class TestService {
         }
     }
 
-    @ArcusCache
-    public String getTestData(@ArcusCacheKey String testKey){
-        return testDataMap.get(testKey);
-
-    }
+//    @ArcusCache
+//    public String getTestData(@ArcusCacheKey String testKey){
+//        return testDataMap.get(testKey);
+//
+//    }
 
     public void setTestData(String testKey, String testData){
         testDataMap.put(testKey, testData);
@@ -66,8 +66,8 @@ public class TestService {
     }
 
     // 6) APP:user.UserService.case6@ARG0=<*=[1,2,3]>
-    @ArcusCache
-    public List<User> getCase6(@ArcusCacheKey int[] userIds) {
+//    @ArcusCache
+    public List<User> getCase6(int[] userIds) {
         List<User> li = new ArrayList();
         for (int userId :
                 userIds) {
