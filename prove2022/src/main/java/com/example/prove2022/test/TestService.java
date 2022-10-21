@@ -4,6 +4,7 @@ import com.jam2in.arcus.app.common.aop.ArcusCache;
 import com.jam2in.arcus.app.common.aop.ArcusCacheKey;
 import com.jam2in.arcus.app.common.aop.ArcusCacheKeyParameter;
 import com.jam2in.arcus.app.common.key.ArcusCacheKeyDate;
+import com.jam2in.arcus.app.common.recaching.ArcusRecachingType;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -40,7 +41,7 @@ public class TestService {
 
     // guide 시작.
     // 1) APP_USER:case1#20220101
-    @ArcusCache(prefix="_USER", key="case1", expireTime="EXPIRE_TIME_1_MIN", keyDate= ArcusCacheKeyDate.KEY_DATE_DAY)
+    @ArcusCache(prefix="_USER", key="case1", expireTime="3",keyDate= ArcusCacheKeyDate.KEY_DATE_DAY, recachingType = ArcusRecachingType.SUS)
     public User getCase1() {
         return testUserMap.get("case1");
     }
