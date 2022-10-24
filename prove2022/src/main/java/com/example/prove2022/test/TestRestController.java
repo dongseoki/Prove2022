@@ -1,9 +1,6 @@
 package com.example.prove2022.test;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,6 +28,12 @@ public class TestRestController {
         return result;
     }
 
+    @GetMapping("/user/{id}")
+    public String arcusUserTest(@PathVariable long id) {
+        testService.getCase1(id);
+        return "end";
+    }
+
     @GetMapping("/arcus-common-module-test/get-user")
     public String arcusCommonModuleGetUser(@RequestParam(value = "caseType") String caseType,
                                            @RequestParam(value = "id", required = false) Integer id,
@@ -38,7 +41,7 @@ public class TestRestController {
                                            @RequestParam(value="data", required = false)String data){
         switch (caseType){
             case "1":
-                testService.getCase1();
+//                testService.getCase1();
                 break;
             case "5":
                 testService.getCase5(new User(id, name), id);

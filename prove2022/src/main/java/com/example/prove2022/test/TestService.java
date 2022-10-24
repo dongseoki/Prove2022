@@ -1,5 +1,6 @@
 package com.example.prove2022.test;
 
+import com.example.prove2022.domain.TimeUnit;
 import com.jam2in.arcus.app.common.aop.ArcusCache;
 import com.jam2in.arcus.app.common.aop.ArcusCacheKey;
 import com.jam2in.arcus.app.common.aop.ArcusCacheKeyParameter;
@@ -20,7 +21,9 @@ public class TestService {
 
     @PostConstruct
     public void postMethod(){
-        testUserMap.put("case1", new User());
+        for (int i = 1; i < 15; i++) {
+            testUserMap.put(Long.toString(i),new User(i,"u"+i));
+        }
 
         //for case6
         for (int i = 1; i < 6; i++) {
@@ -41,9 +44,14 @@ public class TestService {
 
     // guide 시작.
     // 1) APP_USER:case1#20220101
-    @ArcusCache(prefix="_USER", key="case1", expireTime="3",keyDate= ArcusCacheKeyDate.KEY_DATE_DAY, recachingType = ArcusRecachingType.SUS)
-    public User getCase1() {
-        return testUserMap.get("case1");
+    @ArcusCache(prefix="_USER", expireTime="10",keyDate= ArcusCacheKeyDate.KEY_DATE_DAY, recachingType = ArcusRecachingType.SUS)
+    public User getCase1(@ArcusCacheKey long id) {
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return testUserMap.get(Long.toString(id));
     }
 
 
