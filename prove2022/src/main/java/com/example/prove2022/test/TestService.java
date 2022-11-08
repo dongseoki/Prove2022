@@ -40,7 +40,6 @@ public class TestService {
 
     // guide 시작.
     // 1) APP_USER:case1#20220101
-    @ArcusCache(prefix="_USER", key="case1", expireTime="EXPIRE_TIME_1_MIN", keyDate= ArcusCacheKeyDate.KEY_DATE_DAY)
     public User getCase1() {
         return testUserMap.get("case1");
     }
@@ -59,9 +58,7 @@ public class TestService {
 
 
 //    // 5) APP:user.UserService.case5@ARG0=<id=1,name=arcus>,ARG1=<*=1>
-    @ArcusCache
-    public User getCase5(
-            @ArcusCacheKeyParameter({"id", "name"}) User user,@ArcusCacheKey int userId) {
+    public User getCase5(User user, int userId) {
         return testUserMap.get(user.getId()+" "+user.getName());
     }
 
@@ -86,8 +83,7 @@ public class TestService {
 //    public List<User> case9(@ArcusCacheKeyParameter("id") List<User> users) {...}
 
     // 10) APP:user.UserService.case10@ARG0=<id=1,name=arcus>
-    @ArcusCache
-    public User getCase10(@ArcusCacheKeyParameter({"id", "name"}) Map<String, Object> user
+    public User getCase10(Map<String, Object> user
     ) {
         return testUserMap.get(""+user.get("id").toString() + " "+user.get("name").toString());
     }

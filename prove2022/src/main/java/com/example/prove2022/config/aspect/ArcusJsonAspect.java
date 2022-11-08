@@ -19,7 +19,7 @@ public class ArcusJsonAspect extends ArcusCacheJsonAspect {
     }
     /* @Pointcut("execution(!void org.jam2in.arcus.commontest.*Service.get*(..))))") */
 
-    @Pointcut("execution(!void com.example.prove2022.*.*Service.get*(..))))")
+    @Pointcut("execution(!void com.example.prove2022.*.*Service.get*(..))")
     public void pointcut() {}
     @Around("pointcut()")
     public Object around(final ProceedingJoinPoint joinPoint) throws Throwable {
