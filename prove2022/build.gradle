@@ -26,7 +26,6 @@ dependencies {
 // https://mvnrepository.com/artifact/com.navercorp.arcus/arcus-spring
 //	implementation group: 'com.navercorp.arcus', name: 'arcus-spring', version: '1.13.2'
 
-
 	//
 	// https://mvnrepository.com/artifact/com.navercorp.arcus/arcus-java-client
 	implementation group: 'com.navercorp.arcus', name: 'arcus-java-client', version: '1.13.2'
@@ -47,7 +46,7 @@ dependencies {
 
 //	implementation fileTree(dir:'/Users/dongseoklee/Work/LibDependencies/ArcusAppCommonDependencies', includes: ['*.jar'])
 //		implementation fileTree(dir:'/Users/dongseoklee/Github/arcus-app-common/target', includes: ['*.jar'])
-	implementation fileTree(dir:'/Users/dongseoklee/Github/DongseokiFork/arcus-app-common/target', includes: ['*.jar'], excludes: ['slf4j-log4j12-1.7.25.jar', 'spring*.jar'])
+//	implementation fileTree(dir:'/Users/dongseoklee/Github/DongseokiFork/arcus-app-common/target', includes: ['*.jar'], excludes: ['slf4j-log4j12-1.7.25.jar', 'spring*.jar'])
 //	implementation fileTree(dir:'/Users/dongseoklee/Github/DongseokiFork/arcus-app-common/target', includes: ['*.jar'])
 //	/Users/dongseoklee/Github/arcus-app-common/target
 	// for SQL execute parameter log...
