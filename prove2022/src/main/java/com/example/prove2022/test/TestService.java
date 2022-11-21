@@ -1,6 +1,9 @@
 package com.example.prove2022.test;
 
 import com.example.prove2022.domain.TimeUnit;
+import com.himart.arcus.aop.ArcusCache;
+import com.himart.arcus.aop.ArcusCacheKey;
+import com.himart.arcus.aop.ArcusCacheKeyParameter;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -61,7 +64,8 @@ public class TestService {
 
 
 //    // 5) APP:user.UserService.case5@ARG0=<id=1,name=arcus>,ARG1=<*=1>
-    public User getCase5(User user, int userId) {
+    @ArcusCache
+    public User getCase5(@ArcusCacheKeyParameter({"id", "name"}) User user,@ArcusCacheKey int userId) {
         return testUserMap.get(user.getId()+" "+user.getName());
     }
 
