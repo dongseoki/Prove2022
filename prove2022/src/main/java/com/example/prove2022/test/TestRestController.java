@@ -41,7 +41,7 @@ public class TestRestController {
                                            @RequestParam(value="data", required = false)String data){
         switch (caseType){
             case "1":
-//                testService.getCase1();
+                testService.getCase1(id);
                 break;
             case "5":
                 testService.getCase5(new User(id, name), id);

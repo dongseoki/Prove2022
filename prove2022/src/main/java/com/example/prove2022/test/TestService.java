@@ -41,7 +41,8 @@ public class TestService {
 
     // guide 시작.
     // 1) APP_USER:case1#20220101
-    public User getCase1(long id) {
+    @ArcusCache(prefix = "testPrefix")
+    public User getCase1(@ArcusCacheKey long id) {
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
