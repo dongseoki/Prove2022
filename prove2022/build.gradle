@@ -42,6 +42,20 @@ dependencies {
 	testImplementation("org.junit.vintage:junit-vintage-engine") {     exclude group: "org.hamcrest", module: "hamcrest-core"
 	}
 
+	// mybatis 추가.
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	testImplementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter-test', version: '2.2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16' /* Log4jdbc */
+
+
+	// https://mvnrepository.com/artifact/org.slf4j/log4j-over-slf4j
+	implementation group: 'org.slf4j', name: 'log4j-over-slf4j', version: '1.7.36'
+
+
+
+
+
 //	실패
 //	implementation file("/Users/dongseoklee/github/arcus-himart/target/arcus-himart-1.1.1-jar-with-dependencies.jar"){
 //		exclude group: 'org.slf4j', module: 'slf4j-api'
@@ -68,7 +82,8 @@ dependencies {
 	// 수동 참고용.
 	//	implementation fileTree(dir:'/Users/dongseoklee/Work/LibDependencies/ArcusAppCommonDependencies', includes: ['*.jar'])
 //		implementation fileTree(dir:'/Users/dongseoklee/Github/arcus-app-common/target', includes: ['*.jar'])
-	implementation fileTree(dir:'/Users/dongseoklee/github/arcus-himart/target', includes: ['*.jar'], excludes: ['arcus-himart-1.1.1-jar-with-dependencies.jar','slf4j-log4j12-1.7.25.jar', 'spring*.jar'])
+//	implementation fileTree(dir:'/Users/dongseoklee/github/arcus-himart/target', includes: ['*.jar'], excludes: ['arcus-himart-1.1.1-jar-with-dependencies.jar','slf4j-log4j12-1.7.25.jar', 'spring*.jar', 'mybatis-3.4.1.jar'])
+	implementation fileTree(dir:'/Users/dongseoklee/github/arcus-himart/target', includes: ['arcus-himart-1.1.1.jar', 'arcus-java-client-1.11.4.jar','zookeeper-3.4.13.jar','ehcache-core-2.6.0.jar','jline-0.9.94.jar','netty-3.10.6.Final.jar', 'commons-lang3-3.0.jar'])
 //	implementation fileTree(dir:'/Users/dongseoklee/Github/DongseokiFork/arcus-app-common/target', includes: ['*.jar'])
 //	/Users/dongseoklee/Github/arcus-app-common/target
 }

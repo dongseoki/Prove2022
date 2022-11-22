@@ -1,6 +1,5 @@
 package com.example.prove2022.test;
 
-import com.example.prove2022.domain.TimeUnit;
 import com.himart.arcus.aop.ArcusCache;
 import com.himart.arcus.aop.ArcusCacheKey;
 import com.himart.arcus.aop.ArcusCacheKeyParameter;
@@ -15,7 +14,12 @@ import java.util.Map;
 @Service
 public class TestService {
     private final Map<String, String> testDataMap = new HashMap<>();
+    private final TestRepository testRepository;
     private final Map<String, User> testUserMap = new HashMap<>();
+
+    public TestService(TestRepository testRepository) {
+        this.testRepository = testRepository;
+    }
 
     @PostConstruct
     public void postMethod(){
@@ -41,14 +45,18 @@ public class TestService {
 
     // guide 시작.
     // 1) APP_USER:case1#20220101
-    @ArcusCache(prefix = "testPrefix")
-    public User getCase1(@ArcusCacheKey long id) {
+    public User getCase1(long id) {
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return testUserMap.get(Long.toString(id));
+//        return testUserMap.get(Long.toString(id));
+        TestDTO param = new TestDTO();
+        param.setId(""+id);
+        List<TestDTO> testDTOList= testRepository.getTestDTOLIst(param);
+        String testId = testDTOList.get(0).getId();
+        return testUserMap.get(testId);
     }
 
 
