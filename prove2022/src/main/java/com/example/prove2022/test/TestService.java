@@ -51,10 +51,22 @@ public class TestService {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-//        return testUserMap.get(Long.toString(id));
         TestDTO param = new TestDTO();
         param.setId(""+id);
         List<TestDTO> testDTOList= testRepository.getTestDTOLIst(param);
+        String testId = testDTOList.get(0).getId();
+        return testUserMap.get(testId);
+    }
+
+    public User getCase2_mybatisDAOMethod_with_Annotation(long id){
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        TestDTO param = new TestDTO();
+        param.setId(""+id);
+        List<TestDTO> testDTOList= testRepository.getTestDTOListAnnotationTest(param);
         String testId = testDTOList.get(0).getId();
         return testUserMap.get(testId);
     }

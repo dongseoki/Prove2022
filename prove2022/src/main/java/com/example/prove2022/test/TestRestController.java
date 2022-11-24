@@ -43,6 +43,9 @@ public class TestRestController {
             case "1":
                 testService.getCase1(id);
                 break;
+            case "2":
+                testService.getCase2_mybatisDAOMethod_with_Annotation(id);
+                break;
             case "5":
                 testService.getCase5(new User(id, name), id);
                 break;

@@ -7,4 +7,9 @@
         FROM test
         WHERE id = #{id}
     </select>
+    <select id="getTestDTOListAnnotationTest" resultType="com.example.prove2022.test.TestDTO">
+        SELECT *
+        FROM test
+        WHERE id = #{id}
+    </select>
 </mapper>
