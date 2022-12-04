@@ -49,7 +49,7 @@ dependencies {
 
 	runtimeOnly 'com.h2database:h2'
 
-		implementation fileTree(dir:'/Users/dongseoklee/Github/DongseokiFork/arcus-app-common/target/arcus-app-common-2.0.1-jar-with-dependencies.jar', includes: ['*.jar'], excludes: [])
+		implementation files('/Users/dongseoklee/Github/DongseokiFork/arcus-app-common/target/arcus-app-common-2.0.1-jar-with-dependencies.jar')
 //	implementation fileTree(dir:'/Users/dongseoklee/github/arcus-app-common/target', includes: ['*.jar'], excludes: ['spring*.jar'])
 //	/Users/dongseoklee/Github/arcus-app-common/target
 	// for SQL execute parameter log...
