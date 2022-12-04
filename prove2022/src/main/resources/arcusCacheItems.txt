@@ -116,3 +116,9 @@
   “keyParams”: [“friendMap.*”]
 }
 ]
+
+,
+  {
+    "target": "com.example.prove2022.test.TestService.getCase10",
+  "keyParams": ["id,name"]
+}

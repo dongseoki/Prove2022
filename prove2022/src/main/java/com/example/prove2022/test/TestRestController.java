@@ -1,5 +1,6 @@
 package com.example.prove2022.test;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +13,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/test-rest")
 public class TestRestController {
+    private final ApplicationContext applicationContext;
     private final TestService testService;
 
-    public TestRestController(TestService testService) {
+    public TestRestController(ApplicationContext applicationContext, TestService testService) {
+        this.applicationContext = applicationContext;
         this.testService = testService;
     }
 
@@ -36,6 +39,7 @@ public class TestRestController {
                                            @RequestParam(value = "id", required = false) Integer id,
                                            @RequestParam(value="name", required = false)String name,
                                            @RequestParam(value="data", required = false)String data){
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
         switch (caseType){
             case "1":
                 testService.getCase1();

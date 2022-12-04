@@ -2,14 +2,8 @@ package com.example.prove2022.config;
 
 //import com.example.prove2022.config.aspect.ArcusAnnotationAspect;
 import com.example.prove2022.config.aspect.ArcusJsonAspect;
-import com.example.prove2022.config.fetcherImpl.ArcusCacheItemJsonFetcherImpl;
-import com.example.prove2022.config.fetcherImpl.ArcusPropertyJsonFetcherImpl;
 import com.jam2in.arcus.app.common.config.ArcusConfiguration;
-import com.jam2in.arcus.app.common.item.ArcusCacheItemJsonFetcher;
-import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdateScheduler;
-import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdater;
 import com.jam2in.arcus.app.common.property.ArcusPropertyJsonFetcher;
-import com.jam2in.arcus.app.common.property.ArcusPropertyUpdateScheduler;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdater;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -36,7 +30,7 @@ public class ArcusCommonConfiguration {
     Fetcher 기반의 Arcus 프로퍼티, 캐싱 대상 목록 업데이트를 위한 bean 주입 설정
     이 기능을 사용하지 않을 경우 아래의 field 및 생성자의 파라미터 내용을 생략한다.
     */
-//    private final ArcusPropertyJsonFetcher propertyJsonFetcher;
+    private final ArcusPropertyJsonFetcher propertyJsonFetcher;
 //    private final ArcusCacheItemJsonFetcher cacheItemJsonFetcher;
 
 //    public ArcusCommonConfiguration(ArcusConfiguration arcusConfiguration,
@@ -47,8 +41,9 @@ public class ArcusCommonConfiguration {
 //        this.cacheItemJsonFetcher = cacheItemJsonFetcher;
 //    }
 
-    public ArcusCommonConfiguration(ArcusConfiguration arcusConfiguration) {
+    public ArcusCommonConfiguration(ArcusConfiguration arcusConfiguration, ArcusPropertyJsonFetcher propertyJsonFetcher) {
         this.arcusConfiguration = arcusConfiguration;
+        this.propertyJsonFetcher = propertyJsonFetcher;
     }
     /* Arcus 프로퍼티를 사용하기 위한 설정 */
     @Bean
@@ -77,11 +72,11 @@ public class ArcusCommonConfiguration {
     Fetcher 기반의 Arcus 프로퍼티 업데이트를 위한 bean 생성.
     이 기능을 사용하지 않을 경우 아래의 내용을 생략한다.
     */
-//    @Bean
-//    public ArcusPropertyUpdater arcusPropertyUpdater() {
-//        /* Fetcher 구현 방법은 1-3 항목 참고. */
-//        return new ArcusPropertyUpdater(propertyJsonFetcher);
-//    }
+    @Bean
+    public ArcusPropertyUpdater arcusPropertyUpdater() {
+        /* Fetcher 구현 방법은 1-3 항목 참고. */
+        return new ArcusPropertyUpdater(propertyJsonFetcher);
+    }
 
     /*
     Fetcher 기반의 Arcus 프로퍼티 업데이트를 주기적으로 하기 위한 bean 생성.
