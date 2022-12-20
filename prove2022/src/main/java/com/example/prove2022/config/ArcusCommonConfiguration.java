@@ -11,6 +11,7 @@ import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdater;
 import com.jam2in.arcus.app.common.property.ArcusPropertyJsonFetcher;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdateScheduler;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdater;
+import com.jam2in.arcus.app.common.target.ArcusCacheTargetManager;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -73,6 +74,7 @@ public class ArcusCommonConfiguration {
         return new ArcusJsonAspect(arcusConfiguration);
     }
 
+
     /*
     Fetcher 기반의 Arcus 프로퍼티 업데이트를 위한 bean 생성.
     이 기능을 사용하지 않을 경우 아래의 내용을 생략한다.
@@ -113,6 +115,16 @@ Fetcher 기반의 캐시 대상 목록 업데이트를 위한 bean 생성.
 //        return new ArcusCacheItemUpdateScheduler(arcusCacheItemUpdater());
 //    }
 
+
+    /*
+    * Zookeeper 기반의 캐시 대상 목록 업데이트를 주기적으로 하기 위한 bean 생성.
+    * 이 기능을 쓰려면 arcus.properties의 arcus.cacheTarget.enableTarget=true로 설정해야한다.
+    * 이 기능을 사용하지 않을 경우 아래의 내용을 생략한다.
+    * */
+    @Bean
+    public ArcusCacheTargetManager arcusCacheTargetManager(){
+        return new ArcusCacheTargetManager(arcusConfiguration);
+    }
 
 
 }
