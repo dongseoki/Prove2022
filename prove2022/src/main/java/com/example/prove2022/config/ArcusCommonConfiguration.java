@@ -8,9 +8,12 @@ import com.jam2in.arcus.app.common.config.ArcusConfiguration;
 import com.jam2in.arcus.app.common.item.ArcusCacheItemJsonFetcher;
 import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdateScheduler;
 import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdater;
+import com.jam2in.arcus.app.common.property.ArcusProperty;
 import com.jam2in.arcus.app.common.property.ArcusPropertyJsonFetcher;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdateScheduler;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdater;
+import com.jam2in.arcus.app.common.stats.ArcusCacheStatsManager;
+import com.jam2in.arcus.app.common.stats.ArcusCacheStatsSender;
 import com.jam2in.arcus.app.common.target.ArcusCacheTargetManager;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -33,6 +36,9 @@ Arcus 프로퍼티, 캐시 대상 목록 업데이트를 위한 @Scheduler Annot
 @EnableScheduling
 public class ArcusCommonConfiguration {
     private final ArcusConfiguration arcusConfiguration;
+
+    // arcusCacheState 을 사용하기 위해 필요한 메서드.
+    private final ArcusProperty arcusProperty;
     /*
     Fetcher 기반의 Arcus 프로퍼티, 캐싱 대상 목록 업데이트를 위한 bean 주입 설정
     이 기능을 사용하지 않을 경우 아래의 field 및 생성자의 파라미터 내용을 생략한다.
@@ -48,8 +54,9 @@ public class ArcusCommonConfiguration {
 //        this.cacheItemJsonFetcher = cacheItemJsonFetcher;
 //    }
 
-    public ArcusCommonConfiguration(ArcusConfiguration arcusConfiguration) {
+    public ArcusCommonConfiguration(ArcusConfiguration arcusConfiguration, ArcusProperty arcusProperty) {
         this.arcusConfiguration = arcusConfiguration;
+        this.arcusProperty = arcusProperty;
     }
     /* Arcus 프로퍼티를 사용하기 위한 설정 */
     @Bean
@@ -69,9 +76,18 @@ public class ArcusCommonConfiguration {
     JSON 기반의 캐싱을 위한 Aspect bean 생성.
     이 기능을 사용하지 않는다면 아래의 내용을 생략한다.
     */
+//    @Bean
+//    public ArcusJsonAspect arcusJsonAspect() {
+//        return new ArcusJsonAspect(arcusConfiguration);
+//    }
+
+    /*
+    JSON 기반의 캐싱을 위한 Aspect bean 생성. & ArcusCacheState 이용.
+    이 기능을 사용하지 않는다면 아래의 내용을 생략한다.
+    */
     @Bean
     public ArcusJsonAspect arcusJsonAspect() {
-        return new ArcusJsonAspect(arcusConfiguration);
+        return new ArcusJsonAspect(arcusConfiguration, arcusCacheStatsManager());
     }
 
 
@@ -125,6 +141,22 @@ Fetcher 기반의 캐시 대상 목록 업데이트를 위한 bean 생성.
     public ArcusCacheTargetManager arcusCacheTargetManager(){
         return new ArcusCacheTargetManager(arcusConfiguration);
     }
+
+    @Bean
+    public ArcusCacheStatsManager arcusCacheStatsManager(){
+        return new ArcusCacheStatsManager();
+    }
+
+
+    /*
+    * Arcus Cache Stats Sender test
+    *
+    *
+    * */
+//    @Bean
+//    public ArcusCacheStatsSender arcusCacheStatsSender(){
+//        return new ArcusCacheStatsSender(arcusProperty, arcusCacheStatsManager());
+//    }
 
 
 }

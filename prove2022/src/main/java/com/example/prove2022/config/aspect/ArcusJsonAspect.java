@@ -2,6 +2,7 @@ package com.example.prove2022.config.aspect;
 
 import com.jam2in.arcus.app.common.aop.ArcusCacheJsonAspect;
 import com.jam2in.arcus.app.common.config.ArcusConfiguration;
+import com.jam2in.arcus.app.common.stats.ArcusCacheStatsManager;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,9 +15,14 @@ JSON 기반의 캐싱을 위한 Aspect class 정의.
 */
 @Aspect
 public class ArcusJsonAspect extends ArcusCacheJsonAspect {
-    public ArcusJsonAspect(ArcusConfiguration configuration) {
-        super(configuration);
+//    public ArcusJsonAspect(ArcusConfiguration configuration) {
+//        super(configuration);
+//    }
+    public ArcusJsonAspect(ArcusConfiguration arcusConfiguration, ArcusCacheStatsManager arcusCacheStatsManager){
+        super(arcusConfiguration, arcusCacheStatsManager);
     }
+
+
     /* @Pointcut("execution(!void org.jam2in.arcus.commontest.*Service.get*(..))))") */
 
     @Pointcut("execution(!void com.example.prove2022.*.*Service.get*(..))")
