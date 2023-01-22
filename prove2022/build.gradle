@@ -35,6 +35,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	// https://mvnrepository.com/artifact/org.powermock/powermock-api-mockito2
+	testImplementation group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.9'
+	// https://mvnrepository.com/artifact/org.powermock/powermock-module-junit4
+	testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: '2.0.9'
+
+
+
 	//JUnit4 추가
 	testImplementation("org.junit.vintage:junit-vintage-engine") {     exclude group: "org.hamcrest", module: "hamcrest-core"
 	}
