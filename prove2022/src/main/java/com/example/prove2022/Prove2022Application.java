@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com")
+//@ComponentScan(basePackages = "com")
 @EnableAspectJAutoProxy
 public class Prove2022Application {
 
@@ -16,9 +16,9 @@ public class Prove2022Application {
 		SpringApplication.run(Prove2022Application.class, args);
 	}
 
-	@Bean
-	public Performance performance(){
-		return new Performance();
-	}
+//	@Bean
+//	public Performance performance(){
+//		return new Performance();
+//	}
 
 }
