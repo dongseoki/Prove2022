@@ -8,10 +8,14 @@ import com.jam2in.arcus.app.common.config.ArcusConfiguration;
 import com.jam2in.arcus.app.common.item.ArcusCacheItemJsonFetcher;
 import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdateScheduler;
 import com.jam2in.arcus.app.common.item.ArcusCacheItemUpdater;
+import com.jam2in.arcus.app.common.property.ArcusProperty;
 import com.jam2in.arcus.app.common.property.ArcusPropertyJsonFetcher;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdateScheduler;
 import com.jam2in.arcus.app.common.property.ArcusPropertyUpdater;
+import com.jam2in.arcus.app.common.stats.ArcusCacheStatsManager;
+import com.jam2in.arcus.app.common.stats.ArcusCacheStatsSender;
 import com.jam2in.arcus.app.common.target.ArcusCacheTargetManager;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -31,8 +35,11 @@ Arcus 프로퍼티, 캐시 대상 목록 업데이트를 위한 @Scheduler Annot
 이 기능을 사용하지 않을 경우 아래의 내용을 생략한다.
 */
 @EnableScheduling
+@AllArgsConstructor
 public class ArcusCommonConfiguration {
     private final ArcusConfiguration arcusConfiguration;
+    private final ArcusProperty arcusProperty;
+//    private final ArcusCacheStatsManager arcusCacheStatsManager;
     /*
     Fetcher 기반의 Arcus 프로퍼티, 캐싱 대상 목록 업데이트를 위한 bean 주입 설정
     이 기능을 사용하지 않을 경우 아래의 field 및 생성자의 파라미터 내용을 생략한다.
@@ -48,9 +55,6 @@ public class ArcusCommonConfiguration {
 //        this.cacheItemJsonFetcher = cacheItemJsonFetcher;
 //    }
 
-    public ArcusCommonConfiguration(ArcusConfiguration arcusConfiguration) {
-        this.arcusConfiguration = arcusConfiguration;
-    }
     /* Arcus 프로퍼티를 사용하기 위한 설정 */
     @Bean
     public static PropertySourcesPlaceholderConfigurer
@@ -71,7 +75,7 @@ public class ArcusCommonConfiguration {
     */
     @Bean
     public ArcusJsonAspect arcusJsonAspect() {
-        return new ArcusJsonAspect(arcusConfiguration);
+        return new ArcusJsonAspect(arcusConfiguration, arcusCacheStatsManager());
     }
 
 
@@ -126,5 +130,18 @@ Fetcher 기반의 캐시 대상 목록 업데이트를 위한 bean 생성.
         return new ArcusCacheTargetManager(arcusConfiguration);
     }
 
+    /*
+    * for sending current target hit and mis infos.
+    * If you want to use this feature, Please set enableTarget, requestUrl, updateInteval
+    * If you don't want, ignore following code.
+    * */
+    @Bean
+    public ArcusCacheStatsManager arcusCacheStatsManager(){
+        return new ArcusCacheStatsManager();
+    }
+    @Bean
+    public ArcusCacheStatsSender arcusCacheStatsSender(){
+        return new ArcusCacheStatsSender(arcusProperty, arcusCacheStatsManager());
+    }
 
 }
