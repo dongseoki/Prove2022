@@ -22,8 +22,8 @@ public class TestService {
         testUserMap.put("case1", new User());
 
         //for case6
-        for (int i = 1; i < 6; i++) {
-            testUserMap.put(""+ i +" u"+i ,new User(i,"u"+i));
+        for (int userId = 1; userId < 6000; userId++) {
+            testUserMap.put(""+ userId ,new User(userId,"u"+userId));
         }
     }
 
@@ -58,17 +58,17 @@ public class TestService {
 
 
 //    // 5) APP:user.UserService.case5@ARG0=<id=1,name=arcus>,ARG1=<*=1>
-    public User getCase5(User user, int userId) {
-        return testUserMap.get(user.getId()+" "+user.getName());
+    public User getCase5(int userId) {
+        return testUserMap.get(""+userId);
     }
 
     // 6) APP:user.UserService.case6@ARG0=<*=[1,2,3]>
 //    @ArcusCache
-    public List<User> getCase6(int[] userIds) {
+    public List<User> getCase6(List<Integer> userIds) {
         List<User> li = new ArrayList();
         for (int userId :
                 userIds) {
-            li.add(testUserMap.get(userId + " u"+userId));
+            li.add(testUserMap.get(""+userId));
         }
         return li;
     }

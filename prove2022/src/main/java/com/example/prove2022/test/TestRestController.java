@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/test-rest")
@@ -36,16 +37,17 @@ public class TestRestController {
                                            @RequestParam(value = "id", required = false) Integer id,
                                            @RequestParam(value="name", required = false)String name,
                                            @RequestParam(value="data", required = false)String data){
+        String result = "default";
         switch (caseType){
             case "1":
                 testService.getCase1();
                 break;
             case "5":
-                testService.getCase5(new User(id, name), id);
+                result = testService.getCase5(id).toString();
                 break;
             case "6":
                 int[] dataArr = Arrays.stream(data.split(",")).mapToInt(Integer::parseInt).toArray();
-                testService.getCase6(dataArr);
+                result = testService.getCase6(Arrays.stream(dataArr).boxed().collect(Collectors.toList())).toString();
                 break;
             case "10":
                 Map<String, Object> tempMap = new HashMap();
@@ -54,6 +56,6 @@ public class TestRestController {
                 testService.getCase10(tempMap);
                 break;
         }
-        return "end";
+        return result;
     }
 }

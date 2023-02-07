@@ -1,9 +1,12 @@
 package com.example.prove2022.test;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+@ToString
 public class User implements Serializable {
     private int id;
     private String name;
