@@ -52,7 +52,7 @@ public class TestRestController {
                                            @RequestParam(value="name", required = false)String name,
                                            @RequestParam(value="data", required = false)String data){
         String result = "default";
-        // ㅗㅑㄴㅇㄹㄴㅇㄹ
+        // ㅗㅑㄴㅇㄹㄴㅇㄹㄹㄴㅇㅇㄹㄴ
         switch (caseType){
             case "1":
                 testService.getCase1();
