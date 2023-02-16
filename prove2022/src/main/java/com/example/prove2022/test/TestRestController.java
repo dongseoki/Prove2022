@@ -1,5 +1,6 @@
 package com.example.prove2022.test;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,11 +13,24 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/test-rest")
+@Slf4j
 public class TestRestController {
     private final TestService testService;
 
     public TestRestController(TestService testService) {
         this.testService = testService;
+    }
+
+    @GetMapping("/errortest")
+    public String errorTest(){
+        try{
+            throw new IllegalAccessException("dont doit.");
+        }catch(Exception e){
+            log.info("test errror : {}", e.toString());
+            log.info("test errror -----", e);
+            log.info("test errror :", e);
+        }
+        return "test";
     }
 
 
