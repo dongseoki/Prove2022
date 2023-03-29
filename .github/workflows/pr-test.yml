@@ -31,4 +31,4 @@ jobs:
       - name: Test with Gradle
         run: |
           cd prove2022
-          ./prove2022/gradlew --info test
+          ./gradlew --info test
