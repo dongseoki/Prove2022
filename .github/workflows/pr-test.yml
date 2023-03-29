@@ -14,7 +14,15 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
- 
+
+      # echo pwd
+      - name: echo pwd
+        run: echo $(pwd)
+
+      # echo ls
+      - name: echo ls
+        run: echo $(ls)
+
       # Gradle wrapper 파일 실행 권한주기
       - name: Grant execute permission for gradlew
         run: chmod +x ./prove2022/gradlew
