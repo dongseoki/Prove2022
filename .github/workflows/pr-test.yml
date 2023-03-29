@@ -23,6 +23,10 @@ jobs:
       - name: echo ls
         run: echo $(ls)
 
+      # echo ls detail
+      - name: echo ls
+        run: echo $(ls ./prove2022)
+
       # Gradle wrapper 파일 실행 권한주기
       - name: Grant execute permission for gradlew
         run: chmod +x ./prove2022/gradlew
